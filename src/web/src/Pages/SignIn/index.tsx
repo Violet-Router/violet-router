@@ -1,8 +1,9 @@
+import Layout from "../../Components/Layout";
 const SignIn: React.FC = () => {
     return (
-        <div>
+        <Layout>
                 <h6>SignIn</h6>
-        </div>
+        </Layout>
     );
 };
 
