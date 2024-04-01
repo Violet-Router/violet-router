@@ -1,1 +1,12 @@
+### Should return 200
 GET http://localhost:5266/api/catalog HTTP/1.1
+
+
+### Should return 200
+GET http://localhost:5266/api/catalog/42 HTTP/1.1
+
+
+### Should return 404
+GET http://localhost:5266/api/catalog/test HTTP/1.1
+
+
