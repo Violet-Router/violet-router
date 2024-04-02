@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using VIOLET.ROUTER.Domain.Catalog;
+ 
+
 
 namespace VIOLET.ROUTER.Api.Controllers
 {
@@ -7,6 +9,13 @@ namespace VIOLET.ROUTER.Api.Controllers
     [Route("api/[controller]")]
     public class CatalogController : ControllerBase
     {
+
+        private readonly StoreContext _context;
+
+        public CatalogController(StoreContext context)
+        {
+            _context = context;
+        }
         [HttpGet]
         public IActionResult GetItems()
         {
@@ -47,7 +56,20 @@ namespace VIOLET.ROUTER.Api.Controllers
         [HttpPut("{id:int}")]
         public IActionResult UpdateItem(int id, Item item)
         {
-            return NoContent();
+            if (id != item.Id)
+            {
+                return BadRequest();
+            }
+
+            var existingItem = _context.Items.Find(id);
+            if (existingItem == null)
+            {
+                return NotFound();
+            }
+
+            _context.Entry(existingItem).CurrentValues.SetValues(item);
+            _context.SaveChanges();
+            return Ok(item);
         }
 
         [HttpDelete("{id:int}")]
