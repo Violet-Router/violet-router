@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VIOLET.ROUTER.Domain", "VIO
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VIOLET.ROUTER.Data", "VIOLET.ROUTER.Data\VIOLET.ROUTER.Data.csproj", "{1ED5B18B-A8EF-4CFA-B788-F76E8F4EDD31}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{CDF27540-8EF4-463B-8F5A-7395CA885043}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VIOLET.ROUTER.Domain.Tests", "tests\VIOLET.ROUTER.Domain.Tests\VIOLET.ROUTER.Domain.Tests.csproj", "{AFB677F0-00FA-4921-8FB3-CC1B9EE7F7D7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +34,12 @@ Global
 		{1ED5B18B-A8EF-4CFA-B788-F76E8F4EDD31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1ED5B18B-A8EF-4CFA-B788-F76E8F4EDD31}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1ED5B18B-A8EF-4CFA-B788-F76E8F4EDD31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFB677F0-00FA-4921-8FB3-CC1B9EE7F7D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFB677F0-00FA-4921-8FB3-CC1B9EE7F7D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFB677F0-00FA-4921-8FB3-CC1B9EE7F7D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFB677F0-00FA-4921-8FB3-CC1B9EE7F7D7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AFB677F0-00FA-4921-8FB3-CC1B9EE7F7D7} = {CDF27540-8EF4-463B-8F5A-7395CA885043}
 	EndGlobalSection
 EndGlobal
