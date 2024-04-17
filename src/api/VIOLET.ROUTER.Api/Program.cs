@@ -12,6 +12,16 @@ builder.Services.AddDbContext<StoreContext>(options =>
     m => m.MigrationsAssembly("VIOLET.ROUTER.Api"));
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(builder =>
+    {
+        builder.WithOrigins("http://localhost:5173")
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+    });
+});
+
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Violet Router API", Version = "v1" });
@@ -24,7 +34,7 @@ app.UseSwaggerUI(c=>
 {
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "Violet Router API V1");
 });
-
+app.UseCors();
 app.MapControllers();
 
 app.Run();
