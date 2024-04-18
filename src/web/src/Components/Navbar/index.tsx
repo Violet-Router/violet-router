@@ -1,4 +1,7 @@
 import { NavLink } from "react-router-dom";
+import LoginButton from "../Login";
+import LogoutButton from "../Logout";
+import Profile from "../Profile";
 
 const Navbar = () => {
     const activeSytle = "underline text-gray-500 underline-offset-4";
@@ -54,6 +57,17 @@ const Navbar = () => {
                 </li>
 
             </ul>
+            <div className="flex items-center gap-3">
+                <li className="list-none">
+                    <LoginButton/>
+                </li>
+                <li className="list-none">
+                    <LogoutButton/>
+                </li>
+                <li className="list-none">
+                    <Profile/>
+                </li>
+            </div>
         </nav>
     )
  }
