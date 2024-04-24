@@ -1,0 +1,26 @@
+name: "API CI"
+
+on:
+  push:
+    branches-ignore:
+      - main
+
+jobs:
+  ci-build:
+    name: Build and Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: 8.0.x
+      - name: Install dependencies
+        run: dotnet restore
+        working-directory: ./src/api/
+      - name: Build 
+        run: dotnet build --no-restore
+        working-directory: ./src/api/
+      - name: Test  
+        run: dotnet test --no-build --verbosity normal /p:CollectCoverage=true
+        working-directory: ./src/api/
