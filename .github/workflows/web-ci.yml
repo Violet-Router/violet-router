@@ -1,0 +1,27 @@
+name: "Web CI"
+
+on:
+  push:
+    branches-ignore:
+      - main
+
+jobs:
+  ci-build:
+    name: Build and Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '21.x'
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./src/web/
+      - name: Build
+        run: npm run build
+        working-directory: ./src/web/
+      - name: Test
+        run: npm run test
+        working-directory: ./src/web/
+        
